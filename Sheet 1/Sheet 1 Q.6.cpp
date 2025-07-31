@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void calc(float R1, float R2,float* R_parallel, float* R_series){
+void calc(float R1, float R2, float* R_parallel, float* R_series){
     *R_series = R1 + R1;
     *R_parallel =1 / (1/R1 + 1/R2);
 }
