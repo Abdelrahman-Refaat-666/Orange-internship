@@ -9,10 +9,16 @@ void calc(float R1, float R2,float* R_parallel, float* R_series){
 
 int main() {
 
-    float R1, R2, R_parallel, R_series;
+    struct resistor {
+        float parallel;
+        float series;
+    };
+
+    resistor resistors;
+    float R1, R2;
     cout << "What are the vales of the first and the second resistores? ";
     cin >> R1 >> R2;
-    calc(R1, R2, &R_parallel, &R_series);
-    cout << "In series: " << R_series << endl << "In parallel: " << R_parallel;
+    calc(R1, R2, &resistors.parallel, &resistors.series);
+    cout << "In series: " << resistors.series << endl << "In parallel: " << resistors.parallel;
     return 0;
 }
