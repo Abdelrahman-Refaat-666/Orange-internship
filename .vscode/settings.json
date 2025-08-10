@@ -2,7 +2,11 @@
     "files.associations": {
         "ostream": "cpp",
         "cmath": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "array": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
