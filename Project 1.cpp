@@ -128,11 +128,13 @@ Eqs sort_attributes(Eqs eqs) {
     for (int i = 0; i < eqs.variables_count; i++) {
         min = i;
         for (int j = i; j < eqs.variables_count; j++) {
+
             if (eqs.variables[min].length() > eqs.variables[j].length()) {
                 min = j;                
             }
+            else if (eqs.variables[min].length() < eqs.variables[j].length()) {}
             else if (strcmp(eqs.variables[min].c_str(), eqs.variables[j].c_str()) > 0) {
-                min = j;
+                min = j;                
             }
         }
         eqs.variables[i].swap(eqs.variables[min]);
@@ -201,6 +203,7 @@ string add(Eqs* eqs, int eq_one, int eq_two) {
 }
 
 
+
 int main() {
 
     int num_of_eqs;
@@ -216,13 +219,37 @@ int main() {
         parsed_equation[i] = sort_attributes(parsed_equation[i]);
         parsed_equation[i].equation = Form_equation(parsed_equation[i]);
     }
-    for (int i = 0; i < parsed_equation[0].variables_count; i++){
-        cout << "Variable " << i << "= " << parsed_equation[0].variables[i] << '\t';
-        cout << "Empyt " << i << "= " << parsed_equation[0].empty[i] << '\t';
-        cout << "coeff " << i << "= " << parsed_equation[0].coeffecients[i] << endl;
+    string input;
+    string command;
+    int num1;
+    int num2;
+    while (1) {
+        int spaces_count = 0;
+        getline(cin, input);
+        for (int i = 0; i < input.length(); i++) {
+            if (input[i] == ' ') {
+                spaces_count++;
+            }
+        }
+        if (spaces_count == 2) {
+            command = input.substr(0, input.find(" "));
+            num1 = stoi(input.substr(input.find(" "), input.rfind(" ")));
+            num2 = stoi(input.substr(input.rfind(" ")));
+        }
+        if (command == "add") {
+            string eq_sum = add(parsed_equation, num1, num2);
+            cout << "The sum = " << eq_sum << endl;
+        }
+
     }
-    cout << "Parsed equation = " << parsed_equation[0].equation << endl;
-    cout << "Absoulute value = " << parsed_equation[0].absolute_value << endl;
+
+    // for (int i = 0; i < parsed_equation[0].variables_count; i++){
+    //     cout << "Variable " << i << "= " << parsed_equation[0].variables[i] << '\t';
+    //     cout << "Empyt " << i << "= " << parsed_equation[0].empty[i] << '\t';
+    //     cout << "coeff " << i << "= " << parsed_equation[0].coeffecients[i] << endl;
+    // }
+    // cout << "Parsed equation = " << parsed_equation[0].equation << endl;
+    // cout << "Absoulute value = " << parsed_equation[0].absolute_value << endl;
     
     return 0;
 }
