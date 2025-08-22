@@ -6,7 +6,8 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "string_view": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "istream": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
