@@ -309,6 +309,22 @@ string add(Eqs* eqs, int eq_one, int eq_two) {
     return equation;
 }
 
+int* solve(Eqs* parsed_equations, int num_of_eqs) {
+
+    for (int i = 0; i < num_of_eqs; i++) {
+        for (int j = 0; j < num_of_eqs + 1; j++) {
+            
+        }
+    }
+
+
+
+    #ifdef PRINT
+    
+    #endif
+
+}
+
 
 
 int main() {
