@@ -1,5 +1,4 @@
-#include <eqs.h>
-
+#include "eqs.h"
 
 
 int main() {
@@ -10,7 +9,7 @@ int main() {
     cin >> num_of_eqs;
     Eqs parsed_equation[num_of_eqs];
     for (int i = 0; i < num_of_eqs; i++) {
-        cout << "Enter Equation " << i << " : ";
+        cout << "Enter Equation " << i << ": ";
         cin >> equation;
         equation = move_right_to_left(equation);
         parsed_equation[i] = parse(equation);
@@ -19,6 +18,7 @@ int main() {
         parsed_equation[i] = sort_attributes(parsed_equation[i]);
         parsed_equation[i].equation = Form_equation(parsed_equation[i]);
     }
+    cout << parsed_equation[0].equation << endl;
     string input;
     string command;
     string num1;
